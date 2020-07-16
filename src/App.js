@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import AppChild from './AppChild';
 
 const useStyles = ((theme) => ({
     root: {
@@ -49,6 +50,7 @@ class App extends Component {
                    
                     </Hidden>
                 </Grid>
+                <AppChild/>
             </>
         )
     }
