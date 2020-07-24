@@ -97,7 +97,6 @@ render(){
        <Hidden xsDown>
                <Table>
            <TableHead>
-               
                {this.state.tableHeadData.map((headData) =>{
                   return <>
                   <TableRow>
