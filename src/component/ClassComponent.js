@@ -6,7 +6,12 @@ import Axios from 'axios';
 class classComp extends Component{
     constructor(props){
         console.log("Constructor");
+
         super(props);
+
+        this.inputRefs = React.createRef();
+        this.inptDesigRefs = React.createRef();
+
         this.state={
             name:'chotu',
             name1:'guddan',
@@ -75,15 +80,23 @@ class classComp extends Component{
         this.setState({name:this.state.name1,switch:!this.state.switch})
  }
   
+ onCheckRefValue = ()=>{
+    console.log(this.inputRefs.current.value);
+    this.inptDesigRefs.current.placeholder = this.inputRefs.current.value;
+    this.inptDesigRefs.current.focus();
+  //  this.parentRefs.current.value = 
+ }
 render(){
     console.log("render");
     return(
         <>
+        name:<input ref={this.inputRefs}></input><br/>
+        designation:<input ref={this.inptDesigRefs}></input><br/>
+        parentInputValue:<input ref={this.ref}></input><br/>
        {this.state.switch ?  `Hi ${this.state.name}, your real name is Prashant Welcome to Class Component. your ${this.state.bolna} teacher is so intelligent.`
        :<Unmount></Unmount>}
        <Hidden smUp>
 
-      
        <List >
         {this.state.respData.map((data) =>{
             return <><ListItem>
@@ -139,6 +152,7 @@ render(){
       
        </Hidden>
 
+           <Button primary onClick={this.onCheckRefValue}>CheckRefValue</Button>
 
 
         <FooterComp>
